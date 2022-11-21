@@ -4,7 +4,15 @@ const nextConfig = {
 	swcMinify: true,
 	experimental: {
 		appDir: true
-	}
+	},
+	images: {
+		remotePatterns: [
+		  {
+			 protocol: 'http',
+			 hostname: 'placeimg.com',
+		  },
+		],
+	 },
 };
 
 module.exports = nextConfig;
