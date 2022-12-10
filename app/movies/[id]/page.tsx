@@ -6,7 +6,6 @@ async function getFakeDatas() {
 }
 
 export default async function Page({ params }: any) {
-	console.log(params.id);
 	let datas = await getFakeDatas();
 	return (
 		<div className="space-y-2">
@@ -24,7 +23,7 @@ export default async function Page({ params }: any) {
 }
 
 // it's bloodu fast when you use this for static params
-export async function generateStaticParams() {
+export async function generateStaticParams() {		
 	let res = await fetch('https://fakerapi.it/api/v1/books?_quantity=3');
 	let books = await res.json();
 

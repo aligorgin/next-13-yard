@@ -13,10 +13,9 @@ export default function NavLink({ href, children }: Props) {
 	let segment = useSelectedLayoutSegments();
 	let active = href === `/${segment}`;
 
-	// console.log([href, segment[0], active]);
-	return (
+	return (	
 		<Link className={active ? ' underline' : ''} href={href}>
-			{children}
+			{children}		
 		</Link>
 	);
 }
