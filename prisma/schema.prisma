@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// every time you uptade this file u need 'npx prisma migrate dev'
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Projects {
+  id    Int     @id @default(autoincrement())
+  name  String?
+  Tasks Tasks[]
+}
+
+model Tasks {
+  id                Int       @id @default(autoincrement())
+  name              String?
+  completedDateTime DateTime?
+  Projects          Projects? @relation(fields: [projectsId], references: [id])
+  projectsId        Int?
+}
